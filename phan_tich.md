@@ -1,0 +1,7 @@
+Tài khoản user vẫn truy cập được /admin/orders vì cấu hình hiện tại chỉ
+kiểm tra người dùng đã đăng nhập hay chưa bằng anyRequest().authenticated(),
+mà chưa kiểm tra vai trò của người dùng
+Do chưa có cấu hình
+.requestMatchers("/admin/**").hasRole("ADMIN")
+nên sau khi đăng nhập thành công, mọi tài khoản đều có thể truy cập /admin/orders,
+kể cả user có role USER
